@@ -1,6 +1,8 @@
+package person;
+
 import java.util.Objects;
 
-public class Person {
+public abstract class Person {
     private String name;
     private int age;
 
@@ -9,22 +11,26 @@ public class Person {
         this.age = age;
     }
 
-    public void IDCard (){
+    public void IDCard() {
         System.out.println("ID:");
         System.out.println(name);
         System.out.println(age);
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
-        return "Person{" +
+        return "person.Person{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return Objects.hash(name, age);
     }
 

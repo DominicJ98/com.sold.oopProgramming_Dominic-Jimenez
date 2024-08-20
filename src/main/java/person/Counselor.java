@@ -1,6 +1,15 @@
+package person;
+
+import interfaces.Advise;
+import interfaces.Organize;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class Counselor extends Person{
+public class Counselor extends Person implements Advise, Organize {
+    private List<Student> advisedStudents = new ArrayList<>();
+    private List<String> organizedEvents = new ArrayList<>();
     private int facultyID;
     private String title;
     private String studentRange;
@@ -21,8 +30,28 @@ public class Counselor extends Person{
     }
 
     @Override
+    public void adviseStudent(Student student) {
+        advisedStudents.add(student);
+    }
+
+    @Override
+    public List<Student> getAdvisedStudents() {
+        return advisedStudents;
+    }
+
+    @Override
+    public void organizeEvent(String eventName) {
+        organizedEvents.add(eventName);
+    }
+
+    @Override
+    public List<String> getOrganizedEvents() {
+        return organizedEvents;
+    }
+
+    @Override
     public String toString() {
-        return "Counselor{" +
+        return "person.Counselor{" +
                 "facultyID='" + facultyID + '\'' +
                 ", title='" + title + '\'' +
                 ", studentRange='" + studentRange + '\'' +

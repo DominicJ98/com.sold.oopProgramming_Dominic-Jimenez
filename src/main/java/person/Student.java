@@ -1,6 +1,18 @@
+package person;
+
+import interfaces.Organize;
+import interfaces.Research;
+import interfaces.Study;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class Student extends Person{
+public class Student extends Person implements Study, Research, Organize {
+    private List<String> coursesEnrolled = new ArrayList<>();
+    private List<String> researchTopics = new ArrayList<>();
+    private List<String> organizedEvents = new ArrayList<>();
+
     private int studentID;
     private String gradeLevel;
     private double GPA;
@@ -15,14 +27,44 @@ public class Student extends Person{
     @Override
     public void IDCard() {
         super.IDCard();
-        System.out.println("Student Number: " + studentID);
+        System.out.println("person.Student Number: " + studentID);
         System.out.println("Grade: " + gradeLevel);
         System.out.println();
     }
 
     @Override
+    public void enrollInCourse(String courseName) {
+        coursesEnrolled.add(courseName);
+    }
+
+    @Override
+    public List<String> getCoursesEnrolled() {
+        return coursesEnrolled;
+    }
+
+    @Override
+    public void conductResearch(String topic) {
+        researchTopics.add(topic);
+    }
+
+    @Override
+    public List<String> getResearchTopics() {
+        return researchTopics;
+    }
+
+    @Override
+    public void organizeEvent(String eventName) {
+        organizedEvents.add(eventName);
+    }
+
+    @Override
+    public List<String> getOrganizedEvents() {
+        return organizedEvents;
+    }
+
+    @Override
     public String toString() {
-        return "Student{" +
+        return "person.Student{" +
                 "studentID='" + studentID + '\'' +
                 ", gradeLevel='" + gradeLevel + '\'' +
                 ", GPA=" + GPA +
