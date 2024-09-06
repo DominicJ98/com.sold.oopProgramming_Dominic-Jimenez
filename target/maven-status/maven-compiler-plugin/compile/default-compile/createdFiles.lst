@@ -1,0 +1,12 @@
+interfaces\Teach.class
+Main.class
+person\Student.class
+person\Professor.class
+interfaces\Advise.class
+interfaces\Research.class
+University.class
+interfaces\Study.class
+person\Person.class
+UniverityRules.class
+person\Counselor.class
+interfaces\Organize.class
